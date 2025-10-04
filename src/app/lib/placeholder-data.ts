@@ -1,4 +1,6 @@
-const users = [
+import {LocalUser} from "@/app/lib/definitions";
+
+const users: LocalUser[] = [
   {
     id: '0199ad6a-ccb0-7a39-93d4-5d37cc7b192d',
     name: 'User',
