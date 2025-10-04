@@ -1,18 +1,27 @@
-import React from "react";
+import React from 'react';
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
-import { Metadata } from 'next';
+import type {Metadata} from "next";
+import {headers} from "next/headers";
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s | Admin Dashboard',
-    default: 'Admin Dashboard',
-  },
-  description: 'Proxy server admin dashboard.',
-  metadataBase: new URL('http://localhost:3000'),
-};
 
-export default function RootLayout({ children }: {children: React.ReactNode;}) {
+export async function generateMetadata(): Promise<Metadata> {
+  const local_headers = await headers();
+  const host = local_headers.get('host');
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+
+  return {
+    title: {
+      template: '%s | Admin Panel',
+      default: 'Admin Panel',
+    },
+    description: 'UvProxy Admin Panel.',
+    metadataBase: new URL(`${protocol}://${host}`),
+  };
+}
+
+
+export default async function RootLayout({ children }: {children: React.ReactNode;}) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>{children}</body>
