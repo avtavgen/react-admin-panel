@@ -5,7 +5,6 @@ export const authConfig = {
     signIn: '/login',
   },
   providers: [
-    // not implemented
   ],
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
@@ -14,7 +13,8 @@ export const authConfig = {
       if (isOnDashboard) {
         return isLoggedIn;
       } else if (isLoggedIn) {
-        return Response.redirect(new URL('/dashboard', nextUrl));
+        const redirectUrl: URL = new URL('/dashboard', nextUrl)
+        return Response.redirect(redirectUrl);
       }
       return true;
     },

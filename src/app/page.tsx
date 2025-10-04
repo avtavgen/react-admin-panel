@@ -13,7 +13,7 @@ export default function Page() {
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-200 px-6 py-10 md:w-1/4">
           <p
-            className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
+            className={`${lusitana.className} text-gray-800 text-[44px]`}
           >
             <strong>Admin panel</strong>
           </p>
