@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import { z } from 'zod';
 import type { LocalUser } from '@/app/lib/definitions';
 import { authConfig } from '@/auth.config';
-import {users} from "@/app/lib/placeholder-data";
+import { users } from "@/app/lib/placeholder-data";
 
 
 async function getUser(email: string): Promise<LocalUser | undefined> {
